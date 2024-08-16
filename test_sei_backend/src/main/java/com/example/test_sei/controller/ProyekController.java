@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/proyek")
@@ -23,6 +24,16 @@ public class ProyekController {
     @GetMapping
     public ResponseEntity<List<Proyek>> getAllProyek() {
         return ResponseEntity.ok(proyekService.getAllProyek());
+    }
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<Proyek> getProyekById(@PathVariable("id") Integer id) {
+        Optional<Proyek> proyek = proyekService.getProyekById(id);
+        if (proyek.isPresent()) {
+            return ResponseEntity.ok(proyek.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PutMapping("/{id}")

@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/lokasi")
@@ -23,6 +24,12 @@ public class LokasiController {
     @GetMapping
     public ResponseEntity<List<Lokasi>> getAllLokasi() {
         return ResponseEntity.ok(lokasiService.getAllLokasi());
+    }
+
+    //get lokasi by id
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Lokasi>> getLokasiById(@PathVariable("id") Integer id) {
+        return ResponseEntity.ok(lokasiService.getLokasiById(id));
     }
 
     @PutMapping("/{id}")
