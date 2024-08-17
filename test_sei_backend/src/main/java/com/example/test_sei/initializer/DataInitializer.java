@@ -14,7 +14,8 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        lokasiRepository.save(new Lokasi("Lokasi A", "Indonesia", "Jawa Barat", "Bandung"));
-        lokasiRepository.save(new Lokasi("Lokasi B", "Indonesia", "DKI Jakarta", "Jakarta"));
+        lokasiRepository.save(new Lokasi("Jakarta Pusat", "Indonesia", "DKI Jakarta", "Jakarta"));
+        lokasiRepository.save(new Lokasi("Bandung Timur", "Indonesia", "Jawa Barat", "Bandung"));
+        lokasiRepository.save(new Lokasi("Surabaya Utara", "Indonesia", "Jawa Timur", "Surabaya"));
     }
 }
